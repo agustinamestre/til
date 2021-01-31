@@ -5,26 +5,26 @@
 Consider a scenario in which we have multiple records of students and each student record has a name, ID, and marks attribute.
 ```js
 let studentRecords = [ 
-          {name: 'John', id: 123, marks : 98 },
-          {name: 'Baba', id: 101, marks : 23 },
-          {name: 'yaga', id: 200, marks : 45 },
-          {name: 'Wick', id: 115, marks : 75 }
+          {name: 'Anna', id: 56498, marks : 98 },
+          {name: 'John', id: 12469, marks : 54 },
+          {name: 'Malika', id: 26475, marks : 68 },
          ] 
 ```
 **Problem Statement**: We are interested in retrieving only the name of the students and all the names should be in caps.
 
 Expected Result:
 ```js
-['JOHN', 'BABA', 'YAGA', 'WICK']
+['ANNA', 'JOHN', 'MALIKA']
 ```
 There are multiple ways to achieve this. Let’s go through some of them:
 
 **Traditional for() loop**
 ```js
 let names = [];
-for (let index = 0; index < studentRecords.length; index++){
-     names.push(studentRecords[index].name.toUpperCase());
+for (let i = 0; i < studentRecords.length; i++){
+     names.push(studentRecords[i].name.toUpperCase());
 }
+console.log(names); // logs:['ANNA', 'JOHN', 'MALIKA']
 ```
 **forEach() loop**
 ```js
@@ -32,16 +32,16 @@ let names = []
 studentRecords.forEach( student => {
      names.push(student.name.toUpperCase());
 })
-console.log(names); // logs: [ 'JOHN', 'BABA', 'JOHN', 'WICK' ]
+console.log(names); // logs: ['ANNA', 'JOHN', 'MALIKA']
 ```
 
 In the above-mentioned approaches, we have to first create an empty array to save our result.
 
  ## Solution using map() :
 ```js
-let names = studentRecords.map( stu => stu.name.toUpperCase());
+let names = studentRecords.map( student => student.name.toUpperCase());
 
-console.log(names); // logs: [ 'JOHN', 'BABA', 'JOHN', 'WICK' ]
+console.log(names); // logs: ['ANNA', 'JOHN', 'MALIKA']
 ```
 Much simpler and easier  to read, right?
 
