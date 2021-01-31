@@ -69,4 +69,3 @@ let newUsers = users.filter(user=>{
 });
 console.log(newUsers); //output: { name: "Brandon", age: 26, state : true }
 ```
-
