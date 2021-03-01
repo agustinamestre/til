@@ -1,4 +1,5 @@
-# Filter()
+# filter()
+
 ### Create a new array from an existing one by filtering the elements by a given criteria.
 
 Every element of the array is passed to the callback function. On each iteration, if the callback returns true, then that element will be added to the new array, otherwise, it is not added to the new array.
@@ -8,7 +9,7 @@ It does not alter the original array (code immutability).
 
 **Syntax**
 ```js
-let newArray = array.filter (function (currentValue, index, arr);
+const newArray = array.filter(function(currentValue, index, arr);
 ```
 
 **array** is the array on which the corresponding filter will be made.
@@ -23,21 +24,21 @@ let newArray = array.filter (function (currentValue, index, arr);
 
  ## Filter an array
 
-Let's imagine that we have an array of vegetables and we want to filter all those that have 6 or less characters, a possible solution using filter () would be:
+Let's imagine that we have an array of vegetables and we want to filter all those that have 6 or less characters, a possible solution using filter() would be
 
 ```js
-let arrayVegetables = ["Carrot", "Pumpkin", "Onion", "Tomato", "Garlic"];
-let newArrayVegetales = arrayVegetales.filter (vegetable => vegetable.length <= 6);
+const arrayVegetables = ["Carrot", "Pumpkin", "Onion", "Tomato", "Garlic"];
+const newArrayVegetales = arrayVegetales.filter (vegetable => vegetable.length <= 6);
 
-console.log (newArrayVegetables); // output: ["Carrot", "Onion", "Tomato", "Garlic"]
+console.log(newArrayVegetables); // output: ["Carrot", "Onion", "Tomato", "Garlic"]
 ```
 
 ## Filter an array of objects
 
-Suppose we have the following arrangement:
+Suppose we have the following arrangement
 
 ```js
-let users = [
+const users = [
   {
     name: "Ashley",
     age: 19,
@@ -55,14 +56,10 @@ let users = [
   }
 ];
 ```
-We need to obtain the data of the user who meets the following conditions:
-
--adult
-
--status true
+**Problem Statement:** get the data of adult users and status true
 
 ```js
-let newUsers = users.filter(user=>{
+const newUsers = users.filter(user=>{
   if(user.age>=18 && user.state){
     return user;
   }

@@ -1,35 +1,35 @@
-Reduce()
+# reduce()
 
 The reduce() method executes a reducer function on each element of an array, returning a single value as a result.
 
 ### Syntax
 ``` js
-array.reduce ((acc, item, index, arr) => { body of the function }, accumulator initiator)
+array.reduce((acc, item, index, arr) => { body of the function }, accumulator initiator)
 ```
 ### Parameters
 
-**Callback**: function to execute on each element of the array. Receives four parameters:
+**Callback:** function to execute on each element of the array. Receives four parameters:
 
-**Accumulator**: accumulates the value returned by the callback function. It is the accumulated value returned in the last callback invocation
+- **Accumulator**: accumulates the value returned by the callback function. It is the accumulated value returned in the last callback invocation
 
-**Item**: current element of the array to be iterated.
+- **Item**: current element of the array to be iterated.
 
-**Index**: the index of the current element that is being processed in the array.
+- **Index**: the index of the current element that is being processed in the array.
 
-**Arr**: The array on which the reduce() method was called.
+- **Arr**: The array on which the reduce() method was called.
 
 In practice, almost for any case only the variables acc and item are used, so a more condensed syntax would look like this:
 ```js
-array.reduce ((acc, item) => {  body of the function }, accumulator initiator)
+array.reduce((acc, item) => {  body of the function }, accumulator initiator)
 ```
 
-### Let's start with the most common example:
+### Let's start with the most common example
 
 We have an array of numbers and we want to add all their values.
 ```js
-let numbers = [5,15,9,85,2];
-let sum = numbers.reduce((acc, number) => acc + number);
-console.log (sum); // output: 116
+const numbers = [5,15,9,85,2];
+const sum = numbers.reduce((acc, number) => acc + number);
+console.log(sum); // output: 116
 ```
 
 By not using an initialization value, acc = 5, as it is the first element of our array.
@@ -55,9 +55,9 @@ The array on which reduce is called is always the object  [5,15,9,85,2]
 And if we *provide an initial value*, the result would be like this:
 
 ```js
-let numbers = [5,15,9,85,2];
-let sum = numbers.reduce((acc, number) => acc + number, 15);
-console.log (sum); // output: 131
+const numbers = [5,15,9,85,2];
+const sum = numbers.reduce((acc, number) => acc + number, 15);
+console.log(sum); // output: 131
 ```
 ~~~
 First call
@@ -82,25 +82,25 @@ Return Value: 131
 Let's imagine that we have an arrangement of objects that contain food orders, then the chef asks us to indicate how many orders whose main dish is "pasta".
 
 ```js
-let orders = [
-   {starter: 'cucumber salad', main: 'pasta', dessert: "banana"},
-   {starter: 'tomato salad', main: 'pizza', dessert: "ice cream"},
-   {starter: 'simple salad', main: 'sushi', dessert: "yogurt"},
-   {starter: 'simple salad', main: 'pasta', dessert: "yogurt"},
-   {starter: 'tomato salad', main: 'sushi', dessert: null}
+const orders = [
+   {entry: 'cucumber salad', main: 'pasta', dessert: "banana"},
+   {entry: 'tomato salad', main: 'pizza', dessert: "ice cream"},
+   {entry: 'simple salad', main: 'sushi', dessert: "yogurt"},
+   {entry: 'simple salad', main: 'pasta', dessert: "yogurt"},
+   {entry: 'tomato salad', main: 'sushi', dessert: null}
 ];
 ```
-Solution using Reduce():
+ ### Solution using reduce()
 
 ```js 
-let mainPasta = orders.reduce ((acc, order) => {
+const mainPasta = orders.reduce((acc, order) => {
    if (order.main === "pasta")
      return acc + 1;
    else
      return acc;
 }, 0)
 
-console.log (mainPasta); // output: 2
+console.log(mainPasta); // output: 2
 ```
 ### Another example:
 
@@ -109,7 +109,7 @@ Find the minimum or maximum:
 ```js
 const numbers = [5,55,6,7,88,64,21];
 
-let maximum = numbers.reduce((acc, number) => acc > number ? acc : number)
+const maximum = numbers.reduce((acc, number) => acc > number ? acc : number)
 
 console.log(maximum) //88
 
@@ -117,7 +117,7 @@ console.log(maximum) //88
 ```js
 const numbers = [5,55,6,7,88,64,21];
 
-let maximum = numbers.reduce((acc, number) => acc < number ? acc : number)
+const maximum = numbers.reduce((acc, number) => acc < number ? acc : number)
 
 console.log(maximum) //5
 ```
